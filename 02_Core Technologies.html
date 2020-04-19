@@ -3093,7 +3093,9 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         controlling the instantiation or location of its dependencies by using direct
                         construction of classes or a mechanism such as the Service Locator pattern.</p>
                     <p class="translate">
-                        译：本章介绍了Spring框架中控制反转（IOC）原理的实现。IOC也称为依赖注入（DI）。它是指对象仅通过构造函数参数、工厂方法的参数或从工厂方法构造或返回对象实例后，通过在其上设置的属性来定义其依赖项（即与之一起工作的其他对象）的过程。当容器在创建bean时将会注入这些依赖项。
+                        译：本章介绍了Spring框架中控制反转（IOC）原理的实现。IOC也称为依赖注入（DI）。<br>
+                        它是指对象仅通过构造函数参数、工厂方法的参数或从工厂方法构造或返回对象实例后，通过在其上设置的属性来定义其依赖项（即与之一起工作的其他对象）的过程。<br>
+                        当容器在创建bean时将会注入这些依赖项。<br>
                         这个过程跟bean自己控制实例化，或者通过直接构造类或服务定位器模式来定位其依赖项的方式相反（因此称为控制反转）。
                     </p>
                 </div>
@@ -3166,7 +3168,9 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         among them, are reflected in the configuration metadata used by a container.
                     </p>
                      <p class="translate">
-                        译：在Spring中，构成应用程序主干并由SpringIOC容器管理的对象称为bean。bean是一个由SpringIOC容器实例化、组装和管理的对象。否则，bean只是应用程序中许多对象之一。bean以及它们之间的依赖关系反映在容器使用的配置元数据中。
+                        译：在Spring中，构成应用程序主干并由SpringIOC容器管理的对象称为bean。</br> 
+                        bean是一个由SpringIOC容器实例化、组装和管理的对象。否则，bean只是应用程序中许多对象之一。</br> 
+                        bean以及bean之间的依赖关系反映在容器使用的配置元数据中。
                     </p>
 
                 </div>
@@ -3190,9 +3194,9 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         between those objects.
                      </p>
                      <p class="translate">
-                        译：接口 org.springframework.context.ApplicationContext  代表Spring的IoC容器，负责实例化、配置和组装前面提及的bean。
-                        容器通过读取配置元数据来获取对哪些对象进行实例化、配置和组装的指令。
-                        配置元数据以XML、Java注解或Java代码的形式表示，它可以描述组成您应用的对象以及这些对象间丰富的相互依赖关系。
+                        译：org.springframework.context.ApplicationContext接口代表着Spring IOC容器，它负责实例化、配置和组装bean。</br>
+                        容器通过读取配置元数据获取关于要实例化、配置和组装的对象的指令。</br>
+                        配置元数据以XML、Java注解或Java代码来表示。它定义了组成应用程序的对象以及这些对象之间的丰富依赖关系。
                     </p>
                 </div>
                 <hr>
@@ -3210,13 +3214,12 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         additional metadata formats.
                     </p>
                     <p class="translate">
-                        译：Spring提供了几种ApplicationContext接口的实现。
-                        在独立的应用程序中，通常会创建
+                        译：Spring提供了ApplicationContext接口的几个实现。在独立应用程序中，通常创建
                         <a href="https://docs.spring.io/spring-framework/docs/5.2.0.BUILD-SNAPSHOT/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html">ClassPathXmlApplicationContext</a>
                         或
-                        <a href="https://docs.spring.io/spring-framework/docs/5.2.0.BUILD-SNAPSHOT/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html">FileSystemXmlApplicationContext</a>。
+                        <a href="https://docs.spring.io/spring-framework/docs/5.2.0.BUILD-SNAPSHOT/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html">FileSystemXmlApplicationContext</a>
                         的实例。
-                        虽然XML是定义配置元数据的传统格式，但是您可以通过提供少量的XML配置以声明的方式启用对其他元数据格式的支持来指示容器使用Java注解或代码作为元数据的格式。
+                        虽然XML是定义配置元数据的传统格式，但你可以通过使用Java注解或代码作为元数据格式，并外加少量的XML配置，来声明对这些附加元数据格式的支持。格式。
                     </p>
                 </div>
                 <hr>
@@ -3232,10 +3235,10 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         keystrokes.
                     </p>
                     <p class="translate">
-                        译：在大多数的应用场景中，不需要显式的用户代码来实例化一个或多个Spring IoC容器的实例。
-                        例如，在Web应用程序中，web.xml文件的一段简单的8行左右的Web描述XML样板（boilerplate）通常就足够了。
-                        (参见 <a href="02_Core Technologies.html#context-create">web应用程序的便捷ApplicationContext实例化</a>)。 
-                        如果使用<a href="https://spring.io/tools/sts">基于Eclipse的Spring工具套件开发环境</a>，则只需几下鼠标点击或键盘输入就能轻易地创建这段样板配置。
+                        译：
+
+                        在大多数应用程序场景中，不需要显式代码来实例化SpringIOC容器的一个或多个实例。例如，在Web应用程序场景中，简单的在web.xml中用八行（或更多）标准Web描述符即可。如果你使用Spring工具套件（一个支持Eclipse的开发环境），只需点击几下鼠标或按键，就可以轻松地创建这个标准配置。 下图显示了Spring如何工作的高级视图。应用程序类与配置元数据结合在一起，这样，在创建和初始化ApplicationContext之后，你就拥有了一个完全配置且可执行的系统或应用程序。
+
                     </p>
                 </div>
                 <hr>
