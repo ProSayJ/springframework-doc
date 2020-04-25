@@ -27,6 +27,10 @@
         border-top-right-radius: 4px
     }
 
+    .translate {
+            color: green;
+        }
+
     .listingblock .switch--item:not(:first-child) {
         border-style: none
     }
@@ -1783,8 +1787,14 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         Support</a>.
                     For reactive-stack web applications, see <a
                             href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/web-reactive.html#spring-web-reactive">Web
-                        on Reactive Stack</a>.</p>
+                        on Reactive Stack</a>.
+                        <p class="translate">
+                            译:
+                            文档的此部分涵盖对基于Servlet API构建并部署到Servlet容器的Servlet堆栈Web应用程序的支持。 各个章节包括Spring MVC，View Technologies，CORS支持和WebSocket支持。
+                        </p>
+                    </p>
             </div>
+            <hr>
         </div>
     </div>
     <div class="sect1">
@@ -1797,7 +1807,13 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                     in the Spring Framework from the very beginning. The formal name, “Spring Web MVC,”
                     comes from the name of its source module
                     (<a href="https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc"><code>spring-webmvc</code></a>),
-                    but it is more commonly known as “Spring MVC”.</p>
+                    but it is more commonly known as “Spring MVC”.
+                </p>
+                <p class="translate">
+                    译：
+                    Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就已包含在Spring框架中。 正式名称“ Spring Web MVC”来自其源模块的名称（spring-webmvc），但它通常被称为“ Spring MVC”。
+                </p>
+                <hr>
             </div>
             <div class="paragraph">
                 <p>Parallel to Spring Web MVC, Spring Framework 5.0 introduced a reactive-stack web framework
@@ -1806,8 +1822,14 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                     This section covers Spring Web MVC. The <a
                             href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/web-reactive.html#spring-web-reactive">next
                         section</a>
-                    covers Spring WebFlux.</p>
+                    covers Spring WebFlux.
+                </p>
+                <p class="translate">
+                    译:
+                    与Spring Web MVC并行，Spring Framework 5.0引入了一个反应式堆栈Web框架，其名称“ Spring WebFlux”也基于其源模块（spring-webflux）。 本节介绍Spring Web MVC。 下一节将介绍Spring WebFlux。
+                </p>
             </div>
+            <hr>
             <div class="paragraph">
                 <p>For baseline information and compatibility with Servlet container and Java EE version
                     ranges, see the Spring Framework
@@ -1828,8 +1850,14 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         pattern where a central <code>Servlet</code>, the <code>DispatcherServlet</code>, provides a
                         shared algorithm
                         for request processing, while actual work is performed by configurable delegate components.
-                        This model is flexible and supports diverse workflows.</p>
+                        This model is flexible and supports diverse workflows.
+                    </p>
+                    <p class="translate">
+                        译：
+                        与其他许多Web框架一样，Spring MVC围绕前端控制器模式进行设计，在该模式下，中央Servlet DispatcherServlet提供了用于请求处理的共享算法，而实际工作是由可配置的委托组件执行的。 该模型非常灵活，并支持多种工作流程。
+                    </p>
                 </div>
+                <hr>
                 <div class="paragraph">
                     <p>The <code>DispatcherServlet</code>, as any <code>Servlet</code>, needs to be declared and mapped
                         according
@@ -1838,14 +1866,25 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                         the delegate components it needs for request mapping, view resolution, exception
                         handling, <a
                                 href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/web.html#mvc-servlet-special-bean-types">and
-                            more</a>.</p>
+                            more</a>.
+                    </p>
+                    <p class="translate">
+                        译：
+                        与任何Servlet一样，都需要根据Servlet规范使用Java配置或在web.xml中声明和映射DispatcherServlet。 反过来，DispatcherServlet使用Spring配置发现请求映射，视图解析，异常处理等所需的委托组件。
+                    </p>
                 </div>
+                <hr>
                 <div class="paragraph">
                     <p>The following example of the Java configuration registers and initializes
                         the <code>DispatcherServlet</code>, which is auto-detected by the Servlet container
                         (see
                         <a href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/web.html#mvc-container-config">Servlet
-                            Config</a>):</p>
+                            Config</a>):
+                    </p>
+                    <p class="translate">
+                        译：
+                        以下Java配置示例注册并初始化DispatcherServlet，该容器由Servlet容器自动检测到（请参阅Servlet Config）：
+                    </p>
                 </div>
                 <div class="listingblock primary">
                     <div class="switch hidden">
@@ -1915,6 +1954,11 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                                 (see the example under <a
                                     href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/web.html#mvc-servlet-context-hierarchy">Context
                                 Hierarchy</a>).
+                                <br>
+                                <p class="translate">
+                                    译：
+                                    除了直接使用ServletContext API外，您还可以扩展AbstractAnnotationConfigDispatcherServletInitializer并覆盖特定方法（请参见Context Hierarchy下的示例）。
+                                </p>
                             </td>
                         </tr>
                         </tbody>
@@ -1922,6 +1966,10 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                 </div>
                 <div class="paragraph">
                     <p>The following example of <code>web.xml</code> configuration registers and initializes the <code>DispatcherServlet</code>:
+                    </p>
+                    <p class="translate">
+                        译：
+                        以下web.xml配置示例注册并初始化DispatcherServlet：
                     </p>
                 </div>
                 <div class="listingblock">
@@ -1982,6 +2030,11 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                                 For more details, see the
                                 <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-embedded-container">Spring
                                     Boot documentation</a>.
+                                <br>
+                                <p class="translate">
+                                    译：
+                                    Spring Boot遵循不同的初始化顺序。 Spring Boot并没有陷入Servlet容器的生命周期，而是使用Spring配置来引导自身和嵌入式Servlet容器。 在Spring配置中检测到过滤器和Servlet声明，并在Servlet容器中注册。 有关更多详细信息，请参见Spring Boot文档。
+                                </p>
                             </td>
                         </tr>
                         </tbody>
@@ -2000,8 +2053,13 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                             also bound to the <code>ServletContext</code>
                             such that applications can use static methods on <code>RequestContextUtils</code> to look up
                             the
-                            <code>WebApplicationContext</code> if they need access to it.</p>
+                            <code>WebApplicationContext</code> if they need access to it.
+                        </p>
+                        <p class="translate">译：
+                            DispatcherServlet期望WebApplicationContext（纯ApplicationContext的扩展）为其自身的配置。 WebApplicationContext具有指向ServletContext和与其关联的Servlet的链接。它还绑定到ServletContext，以便应用程序可以在RequestContextUtils上使用静态方法来查找WebApplicationContext（如果需要访问它们）。
+                        </p>
                     </div>
+                    <hr>
                     <div class="paragraph">
                         <p>For many applications, having a single <code>WebApplicationContext</code> is simple and
                             suffices.
@@ -2013,8 +2071,14 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                             See
                             <a href="https://docs.spring.io/spring/docs/5.2.0.BUILD-SNAPSHOT/spring-framework-reference/core.html#context-introduction">Additional
                                 Capabilities of the <code>ApplicationContext</code></a>
-                            for more on the context hierarchy feature.</p>
+                            for more on the context hierarchy feature.
+                        </p>
+                        <p class="translate">
+                            译：
+                            对于许多应用程序而言，拥有一个WebApplicationContext很简单并且足够。也可能具有上下文层次结构，其中一个根WebApplicationContext在多个DispatcherServlet（或其他Servlet）实例之间共享，每个实例都有其自己的子WebApplicationContext配置。有关上下文层次结构功能的更多信息，请参见ApplicationContext的其他功能。
+                        </p>
                     </div>
+                    <hr>
                     <div class="paragraph">
                         <p>The root <code>WebApplicationContext</code> typically contains infrastructure beans, such as
                             data repositories and
@@ -2024,7 +2088,12 @@ l-3.6,8.7c-0.4,1-1.2,1.5-2.1,1.5c-0.2,0-0.6,0-0.8-0.1L175.9,34.7z"></path>
                             Servlet-specific
                             child <code>WebApplicationContext</code>, which typically contains beans local to the given
                             <code>Servlet</code>.
-                            The following image shows this relationship:</p>
+                            The following image shows this relationship:
+                        </p>
+                        <p class="translate">
+                            译：
+                            根WebApplicationContext通常包含需要在多个Servlet实例之间共享的基础结构Bean，例如数据存储库和业务服务。这些Bean是有效继承的，并且可以在Servlet特定的子WebApplicationContext中重写（即重新声明），该子WebApplicationContext通常包含给定Servlet本地的Bean。下图显示了这种关系：
+                        </p>
                     </div>
                     <div class="imageblock">
                         <div class="content">
