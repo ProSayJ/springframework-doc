@@ -185,8 +185,7 @@
                         60 is suggested as the minimum patch release for Java 8, but it is generally recommended to use a recent patch release.
                     </p>
                     <p class="translate">
-                        Spring让创建企业级Java程序变得容易。他提供了企业级Java程序所需要的一切内容，包括对于Groovy和Kotlin这两种JVM语言的支持，以灵活的创建多种多样的企业架构。
-                        在Spring Framework5.1中， Spring需要 JDK 8+的支持，最新的能支持的JDK版本是 JDK 11 LTS。
+                        Spring使创建Java企业级应用变得更加容易。它提供了在企业环境中拥抱Java语言所需的一切，支持Groovy和Kotlin作为JVM上的替代语言，并根据应用程序的需要灵活地创建多种架构。从Spring Framework 5.1开始，Spring需要JDK 8+（Java SE 8+），并提供了对JDK 11 LTS的开箱即用支持。建议将Java SE 8更新60作为Java 8的最低补丁版本，但一般建议使用最近的补丁版本。
                     </p>
                 </div>
                 <hr>
@@ -196,17 +195,17 @@
                         Others may run as a single jar with the server embedded, possibly in a cloud environment. Yet others may be standalone applications (such as batch or integration workloads) that do not need a server.
                     </p>
                     <p class="translate">
-                        Spring支持广泛的应用场景。在大型企业中，应用程序通常存在很长时间，并且必须在升级周期超出开发人员控制范围的JDK和应用程序服务器上运行。
-                        其他人可能在嵌入服务器的情况下作为单个jar运行，可能在云环境中运行。还有一些可能是不需要服务器的独立应用程序（例如批处理或集成工作负载）。
+                        Spring支持的应用场景非常广泛。在大型企业中，应用程序往往存在很长时间，必须在JDK和应用服务器上运行，其升级周期超出了开发人员的控制范围。其他的应用程序可能是以单个jar的形式运行，并嵌入服务器，可能是在云环境中运行。还有一些可能是独立的应用程序（如批处理或集成工作负载），不需要服务器。
                     </p>
                 </div>
                 <hr>
                 <div class="paragraph">
-                    <p>Spring is open source. It has a large and active community that provides continuous feedback based on a diverse range of real-world use cases. This has helped Spring to successfully evolve over a very long time.
+                    <p>
+                        Spring is open source. It has a large and active community that provides continuous feedback based on a diverse range of real-world use cases. This has helped Spring to successfully evolve over a very long time.
                     </p>
                     <P class="translate">
-                    Spring是开源的，他有一个庞大和在线的社区为真实世界里面的不同方向的使用情况提供持续的技术支反馈和支持。这使得Spring在很长的一段时间内能够成功进化。
-                </P>
+                        Spring是一个开放的源代码。它拥有一个庞大而活跃的社区，根据不同的现实世界用例提供持续的反馈。这帮助Spring在很长一段时间内成功地实现了进化。
+                    </P>
                 </div>
                 <hr>
             </div>
@@ -220,7 +219,7 @@
                         Most often, when people say "Spring", they mean the entire family of projects. This reference documentation focuses on the foundation: the Spring Framework itself.
                     </p>
                     <p class="translate">
-                        "Spring"这个词在不同的环境中代表不同的含义。最开始的时候，它指的是Spring框架项目本身，但是随着时间的推移，又发展了其他的Spring项目。所以当现在我们提起"Spring"的时候，它指的是整个Spring家族。 我们的这个Spring参考指南指的是一切Spring的基础：Spring Framework 本身。
+                        "Spring "这个词在不同的语境下有不同的含义。它可以用来指的是Spring框架项目本身，也就是它的起源。随着时间的推移，其他的Spring项目都建立在Spring框架之上。大多数情况下，当人们说 "Spring "时，他们指的是整个项目家族。这篇参考文献的重点在于基础：Spring框架本身。
                     </p>
                 </div>
                 <hr>
@@ -231,10 +230,7 @@
                         the Spring WebFlux reactive web framework.
                     </p>
                     <p class="translate">
-                        Spring框架分为几个模块。应用程序可以选择所需的模块。核心是核心容器的模块，包括配置模型和依赖注入机制。
-                        Spring Framework被分成了很多个模块，我们在构建应用程序的时候可以自由选择使用哪个模块。最核心的模块是核心容器包括配置模块和依赖注入机制。
-                        除此之外，Spring Framework还为不同的应用程序体系结构提供了基础支持，包括消息传递，事务数据和持久性以及Web。
-                        它还包括基于Servlet的Spring MVC Web框架，以及Spring WebFlux响应式Web框架。
+                        Spring框架被划分为多个模块。应用程序可以选择自己需要哪些模块。核心是 core container 模块，包括配置模型(configuration model)和依赖注入（dependency injection）机制。除此之外，Spring框架还为不同的应用架构提供了基础支持，包括消息传递、事务性数据和持久化以及web。它还包括基于Servlet的Spring MVC Web框架，以及与之并行的Spring WebFlux反应式Web框架。
                     </p>
                 </div>
                 <hr>
@@ -245,7 +241,7 @@
                         Of course, Spring&#8217;s framework jars keep working fine on the classpath on both JDK 8 and 9+.
                     </p>
                     <p class="translate">
-                        关于模块的说明：Spring Framework的jar包被允许部署到JDK9的模块路径（“Jigsaw”）。当Spring Framework 5被用在开启了Jigsaw的应用程序中时，Spring会开启一个叫做“自动模块名”的功能，并在其中定义了稳定的语言级模块名字，比如（"spring.core", "spring.context"等 ），他们和其所在的jar包名字是不一样的（jar包名字已“-”分割而不是“，”，如"spring-core" 和 "spring-context"）。当然Spring Framework的jar包可以在JDK8和JDK9+环境中正常运行。
+                        关于模块的说明。Spring Framework 的 jar允许部署到JDK 9的模块路径（"Jigsaw"）。为了在支持Jigsaw的应用程序中使用，Spring Framework 5的jar自带 "Automatic-Module-Name "清单条目，它定义了独立于jar artifact名称的稳定的语言级模块名称（"spring.core"、"spring.context "等）（jar遵循相同的命名模式，用"-"代替"."，例如 "spring-core "和 "spring-context"）。当然，Spring的框架jar在JDK 8和9+的classpath上都能正常工作。
                     </p>
                 </div>
                 <hr>
@@ -308,7 +304,7 @@
                         Binding API) when encountered at runtime. This keeps Spring fully compatible with e.g. Tomcat 8 and 9, WebSphere 9, and JBoss EAP 7.
                     </p>
                      <P class="translate">
-                    在Spring框架5.0中，Spring至少要求Java EE 7以上（比如：Servlet 3.1+, JPA 2.1+），同时提供了对于Java EE 8中新API在运行时的支持（Servlet 4.0, JSON Binding API），这使得Spring可以全面支持多种服务器：Tomcat 8， 9, WebSphere 9,JBoss EAP 7。
+                        从Spring Framework 5.0开始，Spring至少需要Java EE 7级别（如Servlet 3.1+、JPA 2.1+），同时在运行时遇到Java EE 8级别的新API（如Servlet 4.0、JSON Binding API）时，提供开箱即用的集成。这使得Spring与Tomcat 8和9、WebSphere 9以及JBoss EAP 7等完全兼容。
                     </P>
                 </div>
                 <hr>
@@ -318,9 +314,8 @@
                         created in a devops- and cloud-friendly way, with the Servlet container embedded and trivial to change. As of Spring Framework 5, a WebFlux application does not even use the Servlet API directly and can run on servers (such as
                         Netty) that are not Servlet containers.
                     </p>
-                    <hr>
                     <P class="translate">
-                    Java EE在应用程序开发中的角色在随时间变化，最开始，应用程序必须被部署成为一个服务。随着SPring boot的出现，现在的应用程序可以在devops或者云环境中随意创建。从Spring Framework 5开始，WebFlux应用程序甚至都不需要使用Servlet API，并且可以在不是Servlet容器的服务器（例如Netty）上运行。
+                        随着时间的推移，Java EE在应用程序开发中的作用也在不断发展。在Java EE和Spring的早期，应用程序的创建是为了部署到应用服务器上。如今，在Spring Boot的帮助下，应用程序以开发和云友好的方式创建，并嵌入了Servlet容器，改变起来很简单。从Spring Framework 5开始，WebFlux应用程序甚至不直接使用Servlet API，可以在不是Servlet容器的服务器（如Netty）上运行。
                     </P>
                 </div>
                 <hr>
@@ -329,7 +324,7 @@
                         has its own source code repository, issue tracker, and release cadence. See <a href="https://spring.io/projects">spring.io/projects</a> for the complete list of Spring projects.</p>
                 </div>
                 <p class="translate">
-                    Spring还将继续发展下去，除了Spring Framework之外，Spring家族还有其他的一些非常棒的项目：Spring Boot, Spring Security, Spring Data, Spring Cloud, Spring Batch等。每个项目都有自己的代码库，问题跟踪机制和发版计划。如果想知道其他项目的具体情况可以参照：<a href="https://spring.io/projects">spring.io/projects</a>。
+                    Spring不断创新，不断发展。在Spring框架之外，还有其他项目，如Spring Boot、Spring Security、Spring Data、Spring Cloud、Spring Batch等。需要记住的是，每个项目都有自己的源代码库、问题跟踪器和发布节奏。请参见：<a href="https://spring.io/projects">spring.io/projects</a>。
                 </p>
                 
             </div>
@@ -342,10 +337,11 @@
                     <p>When you learn about a framework, it’s important to know not only what it does but what principles it follows. Here are the guiding principles of the Spring Framework:
                     </p>
                     <p class="translate">
-                    当你接触到一个框架的时候，不仅仅要知道这个框架是怎么使用的，更需要了解框架的设计原则，下面是Spring框架的设计原则：
+                        当你了解一个框架的时候，不仅要知道它的作用，而且要知道它所遵循的原则。以下是Spring框架的指导原则：
                     </p>
                 </div>
                 <hr>
+
                 <div class="ulist">
                     <ul>
                         <li>
@@ -353,7 +349,7 @@
                                 Provide choice at every level. Spring lets you defer design decisions as late as possible. For example, you can switch persistence providers through configuration without changing your code. The same is true for many other infrastructure concerns and integration with third-party APIs.
                             </p>
                              <p class="translate">
-                                在每一层都提供选项。Spring可以让你尽可能的推迟选择。比如你可以通过配置文件来切换数据存储的提供方而不需要改动代码。这个规则也很好的应用于许多其他基础设施和第三方API集成中。
+                                在各个层面提供选择。Spring让你尽可能推迟设计决策。例如，你可以通过配置来切换持久化提供者，而无需改变代码。对于许多其他基础设施的关注点和与第三方API的集成也是如此。
                             </p>
                         </li>
                         <hr>
@@ -383,7 +379,7 @@
                                 Care about API design. The Spring team puts a lot of thought and time into making APIs that are intuitive and that hold up across many versions and many years.
                             </p>
                             <p class="translate">
-                                关心API设计。Spring团队投入了大量的思想和时间来制作直观的API，这些API可以在多个版本中使用，并可以使用很多年。
+                                关心API的设计。Spring团队花了大量的心思和时间来做API，让API直观，并且能支撑起很多版本和多年的API。
                             </p>
                         </li>
                         <hr>
@@ -394,7 +390,7 @@
                                 between packages.
                             </p>
                             <p class="translate">
-                                为代码质量设定高标准。Spring框架将重点放在有意义、最新和准确的JavaDoc上。它是少数几个可以声明在包之间没有循环依赖关系的干净代码结构的项目之一。
+                                为代码质量设定高标准。Spring框架将重点放在有意义、最新和准确的JavaDoc上。它是极少数能够声称代码结构干净、包之间没有循环依赖的项目之一。
                             </p>
                         </li>
                     </ul>
