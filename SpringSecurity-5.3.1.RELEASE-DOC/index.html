@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        .translate {
+            color: green;
+         }
         .hidden {
             display: none
         }
@@ -2944,9 +2947,13 @@ Is HTTP Public Key Pinning Dead?</a> and <a href="https://scotthelme.co.uk/im-gi
         <div class="sect1">
             <h2 id="servlet-hello"><a class="anchor" href="#servlet-hello"></a>8. Hello Spring Security</h2>
             <div class="sectionbody">
+
                 <div class="paragraph">
                     <p>This section covers the minimum setup for how to use Spring Security with Spring Boot.</p>
+                    <p class="translate">本节涵盖了如何使用Spring Boot使用Spring Security的最低设置。</p>
                 </div>
+                <hr>
+
                 <div class="admonitionblock note">
                     <table>
                         <tr>
@@ -2955,8 +2962,13 @@ Is HTTP Public Key Pinning Dead?</a> and <a href="https://scotthelme.co.uk/im-gi
                             </td>
                             <td class="content">
                                 <div class="paragraph">
-                                    <p>The completed application can be found at <a href="https://github.com/spring-projects/spring-security/tree/5.3.1.RELEASE/samples/boot/helloworld">samples/boot/helloworld</a> For your convenience, you can download a
-                                        minimal Spring Boot + Spring Security application by <a href="https://start.spring.io/starter.zip?type=maven-project&amp;language=java&amp;packaging=jar&amp;jvmVersion=1.8&amp;groupId=example&amp;artifactId=hello-security&amp;name=hello-security&amp;description=Hello%20Security&amp;packageName=example.hello-security&amp;dependencies=web,security">clicking here</a>.</p>
+                                    <p>
+                                        The completed application can be found at <a href="https://github.com/spring-projects/spring-security/tree/5.3.1.RELEASE/samples/boot/helloworld">samples/boot/helloworld</a> For your convenience, you can download a
+                                        minimal Spring Boot + Spring Security application by <a href="https://start.spring.io/starter.zip?type=maven-project&amp;language=java&amp;packaging=jar&amp;jvmVersion=1.8&amp;groupId=example&amp;artifactId=hello-security&amp;name=hello-security&amp;description=Hello%20Security&amp;packageName=example.hello-security&amp;dependencies=web,security">clicking here</a>.
+                                    </p>
+                                    <p class="translate">
+                                        完整的应用程序可以在samplex/boot/helloworld中找到，为了方便，您可以点击这里下载一个最小的Spring Boot + Spring Security应用程序。
+                                    </p>
                                 </div>
                             </td>
                         </tr>
@@ -2965,15 +2977,26 @@ Is HTTP Public Key Pinning Dead?</a> and <a href="https://scotthelme.co.uk/im-gi
                 <div class="sect2">
                     <h3 id="servlet-hello-dependencies"><a class="anchor" href="#servlet-hello-dependencies"></a>8.1. Updating Dependencies</h3>
                     <div class="paragraph">
-                        <p>The only step you need to do is update the dependencies by using <a href="#getting-maven-boot">Maven</a> or <a href="#getting-gradle-boot">Gradle</a>.</p>
+                        <p>The only step you need to do is update the dependencies by using <a href="#getting-maven-boot">Maven</a> or <a href="#getting-gradle-boot">Gradle</a>.
+                        </p>
+                        <p class="translate">你需要做的唯一步骤是使用Maven或Gradle更新依赖关系。</p>
                     </div>
                 </div>
+                <hr>
+
                 <div class="sect2">
                     <h3 id="servlet-hello-starting"><a class="anchor" href="#servlet-hello-starting"></a>8.2. Starting Hello Spring Security Boot</h3>
                     <div class="paragraph">
-                        <p>You can now <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-running-with-the-maven-plugin">run the Spring Boot application</a> by using the Maven Plugin&#8217;s <code>run</code> goal. The
-                            following example shows how to do so (and the beginning of the output from doing so):</p>
+                        <p>
+                            You can now <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-running-with-the-maven-plugin">run the Spring Boot application</a> by using the Maven Plugin&#8217;s <code>run</code> goal. The
+                            following example shows how to do so (and the beginning of the output from doing so):
+                        </p>
+                        <p class="translate">
+                            现在你可以通过使用 Maven Plugin 的 run goal 来运行 Spring Boot 应用程序。下面的例子显示了如何做到这一点（以及这样做的输出的开始）。
+                        </p>
                     </div>
+                    <hr>
+                    
                     <div class="exampleblock">
                         <div class="title">Example 46. Running Spring Boot Application</div>
                         <div class="content">

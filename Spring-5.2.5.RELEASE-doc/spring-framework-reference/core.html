@@ -1602,7 +1602,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Class</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-class">Instantiating Beans</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-class">Instantiating Beans(Bean 实例化)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1610,7 +1610,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Name</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-beanname">Naming Beans</a></p>
+                                    <p class="tableblock"><a href="#beans-beanname">Naming Beans(Bean 命名)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1618,7 +1618,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Scope</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-scopes">Bean Scopes</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-scopes">Bean Scopes(Bean 作用域)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1626,7 +1626,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Constructor arguments</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection(依赖注入)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1634,7 +1634,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Properties</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection(依赖注入)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1642,7 +1642,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Autowiring mode</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-autowire">Autowiring Collaborators</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-autowire">Autowiring Collaborators (自动注入协作对象)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1650,7 +1650,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Lazy initialization mode</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-lazy-init">Lazy-initialized Beans</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-lazy-init">Lazy-initialized Beans (Beans 懒加载)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1658,7 +1658,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Initialization method</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-lifecycle-initializingbean">Initialization Callbacks</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-lifecycle-initializingbean">Initialization Callbacks (初始化回调)</a></p>
                                 </td>
                             </tr>
                             <tr>
@@ -1666,7 +1666,7 @@ context.refresh()</code></pre>
                                     <p class="tableblock">Destruction method</p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock"><a href="#beans-factory-lifecycle-disposablebean">Destruction Callbacks</a></p>
+                                    <p class="tableblock"><a href="#beans-factory-lifecycle-disposablebean">Destruction Callbacks(销毁回调)</a></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -2248,33 +2248,67 @@ context.refresh()</code></pre>
                 </div>
                 <div class="sect2">
                     <h3 id="beans-dependencies"><a class="anchor" href="#beans-dependencies"></a>1.4. Dependencies</h3>
+                    1.4. Dependencies
+
                     <div class="paragraph">
-                        <p>A typical enterprise application does not consist of a single object (or bean in the Spring parlance). Even the simplest application has a few objects that work together to present what the end-user sees as a coherent application.
-                            This next section explains how you go from defining a number of bean definitions that stand alone to a fully realized application where objects collaborate to achieve a goal.</p>
+                        <p>
+                            A typical enterprise application does not consist of a single object (or bean in the Spring parlance). Even the simplest application has a few objects that work together to present what the end-user sees as a coherent application.
+                            This next section explains how you go from defining a number of bean definitions that stand alone to a fully realized application where objects collaborate to achieve a goal.
+                        </p>
+                        <p class="translate">
+                            典型的企业应用程序不会只有一个对象（或Spring术语中的bean）。即使是最简单的应用程序也有一些对象一起工作，最终呈现给用户。
+                            下一节将解释如何从定义一些独立的bean到一个真实的应用程序，在该应用程序中通过对象协作来实现一个目标。
+                        </p>
                     </div>
+                    <hr>
+
                     <div class="sect3">
                         <h4 id="beans-factory-collaborators"><a class="anchor" href="#beans-factory-collaborators"></a>1.4.1. Dependency Injection</h4>
+                        1.4.1 依赖注入
+
                         <div class="paragraph">
-                            <p>Dependency injection (DI) is a process whereby objects define their dependencies (that is, the other objects with which they work) only through constructor arguments, arguments to a factory method, or properties that are set
-                                on the object instance after it is constructed or returned from a factory method. The container then injects those dependencies when it creates the bean. This process is fundamentally the inverse (hence the name, Inversion
-                                of Control) of the bean itself controlling the instantiation or location of its dependencies on its own by using direct construction of classes or the Service Locator pattern.</p>
+                            <p>
+                                Dependency injection (DI) is a process whereby objects define their dependencies (that is, the other objects with which they work) only through constructor arguments, arguments to a factory method, or properties that are set on the object instance after it is constructed or returned from a factory method. The container then injects those dependencies when it creates the bean. This process is fundamentally the inverse (hence the name, Inversion of Control) of the bean itself controlling the instantiation or location of its dependencies on its own by using direct construction of classes or the Service Locator pattern.
+                            </p>
+                            <p class="translate">
+                                依赖注入(DI)是一个过程，在这个过程中，对象只通过构造器参数、工厂方法的参数，或者在对象实例被构造或从工厂方法返回后，在对象实例上设置的属性来定义它们的依赖关系(也就是与它们一起工作的其他对象)。然后容器在创建Bean时注入这些依赖关系。这个过程从根本上说是Bean本身通过使用类的 直接构造 或 服务定位器模式 来控制其依赖关系的实例化或位置的反转（故名Inversion of Control）。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>Code is cleaner with the DI principle, and decoupling is more effective when objects are provided with their dependencies. The object does not look up its dependencies and does not know the location or class of the dependencies.
-                                As a result, your classes become easier to test, particularly when the dependencies are on interfaces or abstract base classes, which allow for stub or mock implementations to be used in unit tests.</p>
+                            <p>
+                                Code is cleaner with the DI principle, and decoupling is more effective when objects are provided with their dependencies. The object does not look up its dependencies and does not know the location or class of the dependencies.As a result, your classes become easier to test, particularly when the dependencies are on interfaces or abstract base classes, which allow for stub or mock implementations to be used in unit tests.
+                            </p>
+                            <p class="translate">
+                                 使用DI原理的代码更干净，当对象提供了依赖关系时，解耦更有效。对象不会去查询它的依赖关系，也不知道依赖关系的位置和类。因此，你的类变得更容易测试，特别是当依赖对象是在接口或抽象基类上的时候，可以在单元测试中使用存根或模拟实现。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>DI exists in two major variants: <a href="#beans-constructor-injection">Constructor-based
-dependency injection</a> and <a href="#beans-setter-injection">Setter-based dependency injection</a>.</p>
+                            <p>DI exists in two major variants: <a href="#beans-constructor-injection">Constructor-based dependency injection</a> and <a href="#beans-setter-injection">Setter-based dependency injection</a>.</p>
+                            <p class="translate">DI存在于两种主要的变性：基于构造函数的依赖注入和基于Setter的依赖注入。</p>
                         </div>
+                        <hr>
+
                         <div class="sect4">
                             <h5 id="beans-constructor-injection"><a class="anchor" href="#beans-constructor-injection"></a>Constructor-based Dependency Injection</h5>
+                            基于构造器的依赖注入
+                            <hr>
+
                             <div class="paragraph">
-                                <p>Constructor-based DI is accomplished by the container invoking a constructor with a number of arguments, each representing a dependency. Calling a <code>static</code> factory method with specific arguments to construct
+                                <p>
+                                    Constructor-based DI is accomplished by the container invoking a constructor with a number of arguments, each representing a dependency. Calling a <code>static</code> factory method with specific arguments to construct
                                     the bean is nearly equivalent, and this discussion treats arguments to a constructor and to a <code>static</code> factory method similarly. The following example shows a class that can only be dependency-injected with
                                     constructor injection:
                                 </p>
+                                <p class="translate">
+                                    基于构造函数的DI是通过容器调用一个具有若干参数的构造函数来实现的，每个参数代表一个依赖关系。这个和调用带有特定参数的静态工厂方法来构造bean几乎是等效的，这里将会对构造函数和静态工厂方法的参数做相似的处理。下面的例子展示了一个只能用构造函数注入的依赖注入类。
+                                </p>
                             </div>
+                            <hr>
+
                             <div class="listingblock primary">
                                 <div class="title">Java</div>
                                 <div class="content">
@@ -2303,13 +2337,26 @@ class SimpleMovieLister(private val movieFinder: MovieFinder) {
                             </div>
                             <div class="paragraph">
                                 <p>Notice that there is nothing special about this class. It is a POJO that has no dependencies on container specific interfaces, base classes or annotations.</p>
+                                <p class="translate">注意，这个类没有什么特别之处。它是一个POJO，没有依赖容器特定的接口、基类或注释。</p>
                             </div>
+                            <hr>
+
                             <div class="sect5">
                                 <h6 id="beans-factory-ctor-arguments-resolution"><a class="anchor" href="#beans-factory-ctor-arguments-resolution"></a>Constructor Argument Resolution</h6>
+                                构造函数参数的解析
+
+                                <hr>
                                 <div class="paragraph">
-                                    <p>Constructor argument resolution matching occurs by using the argument&#8217;s type. If no potential ambiguity exists in the constructor arguments of a bean definition, the order in which the constructor arguments are
-                                        defined in a bean definition is the order in which those arguments are supplied to the appropriate constructor when the bean is being instantiated. Consider the following class:</p>
+                                    <p>
+                                        Constructor argument resolution matching occurs by using the argument&#8217;s type. If no potential ambiguity exists in the constructor arguments of a bean definition, the order in which the constructor arguments are
+                                        defined in a bean definition is the order in which those arguments are supplied to the appropriate constructor when the bean is being instantiated. Consider the following class:
+                                    </p>
+                                    <p class="translate">
+                                         通过使用参数的类型进行构造器参数解析匹配。如果Bean定义的构造函数参数中不存在潜在的歧义，那么当Bean被实例化时，构造器参数在Bean定义中定义的顺序就是这些参数被提供给相应的构造函数的顺序。可以看下面的类：
+                                    </p>
                                 </div>
+                                <hr>
+
                                 <div class="listingblock primary">
                                     <div class="title">Java</div>
                                     <div class="content">
@@ -2331,11 +2378,19 @@ public class ThingOne {
 class ThingOne(thingTwo: ThingTwo, thingThree: ThingThree)</code></pre>
                                     </div>
                                 </div>
+                                <hr>
+
                                 <div class="paragraph">
-                                    <p>Assuming that <code>ThingTwo</code> and <code>ThingThree</code> classes are not related by inheritance, no potential ambiguity exists. Thus, the following configuration works fine, and you do not need to specify the
+                                    <p>
+                                        Assuming that <code>ThingTwo</code> and <code>ThingThree</code> classes are not related by inheritance, no potential ambiguity exists. Thus, the following configuration works fine, and you do not need to specify the
                                         constructor argument indexes or types explicitly in the <code>&lt;constructor-arg/&gt;</code> element.
                                     </p>
+                                    <p class="translate">
+                                        假设 ThingsTwo 和 ThingThree 类之间没有继承关系，那么就不存在潜在的歧义。因此，下面的配置可以正常工作，你不需要在<constructor-arg/>元素中明确指定构造函数参数索引或类型。
+                                    </p>
                                 </div>
+                                <hr>
+
                                 <div class="listingblock">
                                     <div class="content">
                                         <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;beans&gt;
@@ -2350,10 +2405,19 @@ class ThingOne(thingTwo: ThingTwo, thingThree: ThingThree)</code></pre>
 &lt;/beans&gt;</code></pre>
                                     </div>
                                 </div>
+                                <hr>
+
                                 <div class="paragraph">
-                                    <p>When another bean is referenced, the type is known, and matching can occur (as was the case with the preceding example). When a simple type is used, such as
-                                        <code>&lt;value&gt;true&lt;/value&gt;</code>, Spring cannot determine the type of the value, and so cannot match by type without help. Consider the following class:</p>
+                                    <p>
+                                        When another bean is referenced, the type is known, and matching can occur (as was the case with the preceding example). When a simple type is used, such as
+                                        <code>&lt;value&gt;true&lt;/value&gt;</code>, Spring cannot determine the type of the value, and so cannot match by type without help. Consider the following class:
+                                    </p>
+                                    <p class="translate">
+                                        当引用另一个bean时，类型是已知的，可以进行匹配（就像前面的例子一样）。当使用简单的类型时，例如<value>true</value>，Spring无法确定值的类型，因此无法在没有帮助的情况下进行类型匹配。考虑一下下面的类。
+                                    </p>
                                 </div>
+                                <hr>
+
                                 <div class="listingblock primary">
                                     <div class="title">Java</div>
                                     <div class="content">
@@ -2387,10 +2451,18 @@ class ExampleBean(
                                 </div>
                                 <div class="openblock">
                                     <div class="title"><a id="beans-factory-ctor-arguments-type"></a>Constructor argument type matching</div>
+                                    构造函数类型匹配
+
+                                    <hr>
                                     <div class="content">
                                         <div class="paragraph">
-                                            <p>In the preceding scenario, the container can use type matching with simple types if you explicitly specify the type of the constructor argument by using the <code>type</code> attribute. as the following example
-                                                shows:</p>
+                                            <p>
+                                                In the preceding scenario, the container can use type matching with simple types if you explicitly specify the type of the constructor argument by using the <code>type</code> attribute. as the following example
+                                                shows:
+                                            </p>
+                                            <p class="translate">
+                                                在前面的场景中，如果使用type属性显式指定构造函数参数的类型，则容器可以使用与简单类型匹配的类型。如下示例所示：
+                                            </p>
                                         </div>
                                         <div class="listingblock">
                                             <div class="content">
@@ -2404,10 +2476,16 @@ class ExampleBean(
                                 </div>
                                 <div class="openblock">
                                     <div class="title"><a id="beans-factory-ctor-arguments-index"></a>Constructor argument index</div>
+                                    构造函数索引
+
+                                    <hr>
                                     <div class="content">
                                         <div class="paragraph">
                                             <p>You can use the <code>index</code> attribute to specify explicitly the index of constructor arguments, as the following example shows:</p>
+                                            <p class="translate">你也可以使用index属性来显示的指定构造函数参数的位置，如下所示：</p>
                                         </div>
+                                        <hr>
+
                                         <div class="listingblock">
                                             <div class="content">
                                                 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="exampleBean" class="examples.ExampleBean"&gt;
@@ -2418,7 +2496,10 @@ class ExampleBean(
                                         </div>
                                         <div class="paragraph">
                                             <p>In addition to resolving the ambiguity of multiple simple values, specifying an index resolves ambiguity where a constructor has two arguments of the same type.</p>
+                                            <p class="translate">除了解决多个简单值的不确定性之外，指定索引还可以解决构造函数有两个相同类型参数的不确定性。</p>
                                         </div>
+                                        <hr>
+
                                         <div class="admonitionblock note">
                                             <table>
                                                 <tr>
@@ -2435,10 +2516,16 @@ class ExampleBean(
                                 </div>
                                 <div class="openblock">
                                     <div class="title"><a id="beans-factory-ctor-arguments-name"></a>Constructor argument name</div>
+                                    构造函数名字匹配
+
+                                    <hr>
                                     <div class="content">
                                         <div class="paragraph">
                                             <p>You can also use the constructor parameter name for value disambiguation, as the following example shows:</p>
+                                            <p class="translate">你也可以使用构造函数的参数名字来指定，如下所示</p>
                                         </div>
+                                        <hr>
+
                                         <div class="listingblock">
                                             <div class="content">
                                                 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="exampleBean" class="examples.ExampleBean"&gt;
@@ -2448,11 +2535,18 @@ class ExampleBean(
                                             </div>
                                         </div>
                                         <div class="paragraph">
-                                            <p>Keep in mind that, to make this work out of the box, your code must be compiled with the debug flag enabled so that Spring can look up the parameter name from the constructor. If you cannot or do not want to
+                                            <p>
+                                                Keep in mind that, to make this work out of the box, your code must be compiled with the debug flag enabled so that Spring can look up the parameter name from the constructor. If you cannot or do not want to
                                                 compile your code with the debug flag, you can use the
                                                 <a href="https://download.oracle.com/javase/8/docs/api/java/beans/ConstructorProperties.html">@ConstructorProperties</a> JDK annotation to explicitly name your constructor arguments. The sample class would
-                                                then have to look as follows:</p>
+                                                then have to look as follows:
+                                            </p>
+                                            <p class="translate">
+                                                请记住，为了使这个功能开箱即用，您的代码必须在编译时启用调试标志，这样Spring就可以从构造函数中查找参数名称。如果你不能或不想在编译代码时使用调试标志，你可以使用 @ConstructorProperties JDK 注解来显式命名你的构造函数参数。这样，示例类就会看起来像下面这样。
+                                            </p>
                                         </div>
+                                        <hr>
+
                                         <div class="listingblock primary">
                                             <div class="title">Java</div>
                                             <div class="content">
@@ -2486,13 +2580,30 @@ constructor(val years: Int, val ultimateAnswer: String)</code></pre>
                         </div>
                         <div class="sect4">
                             <h5 id="beans-setter-injection"><a class="anchor" href="#beans-setter-injection"></a>Setter-based Dependency Injection</h5>
+                            基于Setter的注入依赖
+                            <hr>
+
                             <div class="paragraph">
-                                <p>Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or a no-argument <code>static</code> factory method to instantiate your bean.</p>
+                                <p>
+                                    Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or a no-argument <code>static</code> factory method to instantiate your bean.
+                                </p>
+                                <p class="translate">
+                                     基于setter的DI是由容器在调用无参数构造函数或无参数的<code>static</code>工厂方法来实例化你的Bean之后，在你的Bean上调用setter方法来实现的。
+                                </p>
                             </div>
+                            <hr>
+
                             <div class="paragraph">
-                                <p>The following example shows a class that can only be dependency-injected by using pure setter injection. This class is conventional Java. It is a POJO that has no dependencies on container specific interfaces, base classes,
-                                    or annotations.</p>
+                                <p>
+                                    The following example shows a class that can only be dependency-injected by using pure setter injection. This class is conventional Java. It is a POJO that has no dependencies on container specific interfaces, base classes,
+                                    or annotations.
+                                </p>
+                                <p class="translate">
+                                    下面的示例显示了一个类，该类只能通过使用纯setter注入来注入依赖项。这个类是传统的Java。它是一个POJO，不依赖于特定于容器的接口、基类或注解。
+                                </p>
                             </div>
+                            <hr>
+
                             <div class="listingblock primary">
                                 <div class="title">Java</div>
                                 <div class="content">
@@ -2522,101 +2633,206 @@ constructor(val years: Int, val ultimateAnswer: String)</code></pre>
 }</code></pre>
                                 </div>
                             </div>
+                            <hr>
+
                             <div class="paragraph">
-                                <p>The <code>ApplicationContext</code> supports constructor-based and setter-based DI for the beans it manages. It also supports setter-based DI after some dependencies have already been injected through the constructor approach.
+                                <p>
+                                    The <code>ApplicationContext</code> supports constructor-based and setter-based DI for the beans it manages. It also supports setter-based DI after some dependencies have already been injected through the constructor approach.
                                     You configure the dependencies in the form of a <code>BeanDefinition</code>, which you use in conjunction with <code>PropertyEditor</code> instances to convert properties from one format to another. However, most Spring
                                     users do not work with these classes directly (that is, programmatically) but rather with XML <code>bean</code> definitions, annotated components (that is, classes annotated with <code>@Component</code>,
                                     <code>@Controller</code>, and so forth), or <code>@Bean</code> methods in Java-based <code>@Configuration</code> classes. These sources are then converted internally into instances of <code>BeanDefinition</code> and
-                                    used to load an entire Spring IoC container instance.</p>
+                                    used to load an entire Spring IoC container instance.
+                                </p>
+                                <p class="translate">
+                                    ApplicationContext支持对其管理的Bean进行基于 构造函数 和 基于setter 的DI。它还支持在 通过构造函数方法注入了一些依赖项之后，仍然可以使用基于setter的DI。 所有的依赖都会被转化成为BeanDefinition，它会与PropertyEditor实例一起使用，将属性从一种格式转换为另一种格式。然而，大多数Spring用户并不直接使用这些类（也就是程序化的），而是使用XML Bean定义、注释的组件（也就是用@Component、@Controller等注释的类），或者基于Java的@Configuration类中的@Bean方法。然后，这些源都会被内部转换为BeanDefinition的实例，并用于加载整个Spring IoC容器实例。
+                                </p>
                             </div>
+                            <hr>
+
                             <div id="beans-constructor-vs-setter-injection" class="sidebarblock">
                                 <div class="content">
                                     <div class="title">Constructor-based or setter-based DI?</div>
+
                                     <div class="paragraph">
-                                        <p>Since you can mix constructor-based and setter-based DI, it is a good rule of thumb to use constructors for mandatory dependencies and setter methods or configuration methods for optional dependencies. Note that
+                                        <p>
+                                            Since you can mix constructor-based and setter-based DI, it is a good rule of thumb to use constructors for mandatory dependencies and setter methods or configuration methods for optional dependencies. Note that
                                             use of the <a href="#beans-required-annotation">@Required</a> annotation on a setter method can be used to make the property be a required dependency; however, constructor injection with programmatic validation
-                                            of arguments is preferable.</p>
+                                            of arguments is preferable.
+                                        </p>
+                                        <p class="translate">
+                                            由于你可以混合使用基于构造函数和基于setter的DI，所以对于强制依赖项使用构造函数，对于可选依赖项使用setter方法或配置方法是一个很好的实践经验。 注意，可以使用setter方法上的@Required注解使属性成为必需的依赖项；但是，最好使用构造函数注入并在程序中做相应的验证。
+                                        </p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects and ensures that required dependencies are not <code>null</code>. Furthermore, constructor-injected
+                                        <p>
+                                            The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects and ensures that required dependencies are not <code>null</code>. Furthermore, constructor-injected
                                             components are always returned to the client (calling) code in a fully initialized state. As a side note, a large number of constructor arguments is a bad code smell, implying that the class likely has too many
-                                            responsibilities and should be refactored to better address proper separation of concerns.</p>
+                                            responsibilities and should be refactored to better address proper separation of concerns.
+                                        </p>
+                                        <p class="translate">
+                                          Spring团队通常提倡构造函数注入，因为它允许你将应用程序组件实现为不可变的对象，并确保所需的依赖项不为空。 此外，构造函数注入的组件总是以完全初始化的状态返回到客户端（调用）代码。另一点需要注意的是，大量的构造函数参数是一种糟糕的代码体验，这意味着类可能做了太多的事情，应该重构以做适当的分离。  
+                                        </p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>Setter injection should primarily only be used for optional dependencies that can be assigned reasonable default values within the class. Otherwise, not-null checks must be performed everywhere the code uses the
-                                            dependency. One benefit of setter injection is that setter methods make objects of that class amenable to reconfiguration or re-injection later. Management through <a href="integration.html#jmx">JMX MBeans</a>                                            is therefore a compelling use case for setter injection.</p>
+                                        <p>
+                                            Setter injection should primarily only be used for optional dependencies that can be assigned reasonable default values within the class. Otherwise, not-null checks must be performed everywhere the code uses the dependency. One benefit of setter injection is that setter methods make objects of that class amenable to reconfiguration or re-injection later. Management through <a href="integration.html#jmx">JMX MBeans</a> is therefore a compelling use case for setter injection.
+                                        </p>
+                                        <p class="translate">
+                                            Setter注入应该主要用于可在类内分配合理默认值的可选依赖项。否则，在代码使用依赖项的任何地方都必须执行非空检查。 Setter注入的一个好处是Setter方法使该类的对象能够在以后重新配置或重新注入。因此，通过JMX MBeans进行管理是Setter注入的一个成功的用例。
+                                        </p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>Use the DI style that makes the most sense for a particular class. Sometimes, when dealing with third-party classes for which you do not have the source, the choice is made for you. For example, if a third-party
-                                            class does not expose any setter methods, then constructor injection may be the only available form of DI.</p>
+                                        <p>
+                                            Use the DI style that makes the most sense for a particular class. Sometimes, when dealing with third-party classes for which you do not have the source, the choice is made for you. For example, if a third-party
+                                            class does not expose any setter methods, then constructor injection may be the only available form of DI.
+                                        </p>
+                                        <p class="translate">
+                                            对特定类使用最有意义的DI样式。有时，在处理没有源代码的第三方类时，只有一种选择。例如，如果第三方类不公开任何setter方法，那么构造函数注入可能是DI的唯一可用形式。
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="sect4">
                             <h5 id="beans-dependency-resolution"><a class="anchor" href="#beans-dependency-resolution"></a>Dependency Resolution Process</h5>
+                            依赖解析流程
+                            <br>
+
                             <div class="paragraph">
                                 <p>The container performs bean dependency resolution as follows:</p>
+                                <p class="translate">容器按如下流程处理Bean的依赖解析：</p>
                             </div>
+                            <hr>
+
                             <div class="ulist">
                                 <ul>
                                     <li>
-                                        <p>The <code>ApplicationContext</code> is created and initialized with configuration metadata that describes all the beans. Configuration metadata can be specified by XML, Java code, or annotations.
+                                        <p>
+                                            The <code>ApplicationContext</code> is created and initialized with configuration metadata that describes all the beans. Configuration metadata can be specified by XML, Java code, or annotations.
+                                        </p>
+                                        <p class="translate">
+                                            ApplicationContext是用描述所有Bean的配置元数据来创建和初始化的。这些配置元数据可以通过XML、Java代码或注解来指定。
                                         </p>
                                     </li>
+                                    <hr>
+
                                     <li>
-                                        <p>For each bean, its dependencies are expressed in the form of properties, constructor arguments, or arguments to the static-factory method (if you use that instead of a normal constructor). These dependencies are
-                                            provided to the bean, when the bean is actually created.</p>
+                                        <p>
+                                            For each bean, its dependencies are expressed in the form of properties, constructor arguments, or arguments to the static-factory method (if you use that instead of a normal constructor). These dependencies are provided to the bean, when the bean is actually created.
+                                        </p>
+                                        <p class="translate">对于每个bean，其依赖项都以属性、构造函数参数或静态工厂方法的参数的形式表示。当bean实际创建时，这些依赖项会提供给bean</p>
                                     </li>
+                                    <hr>
+
                                     <li>
                                         <p>Each property or constructor argument is an actual definition of the value to set, or a reference to another bean in the container.</p>
+                                        <p class="translate">每个属性或构造函数参数都是要设置的值的实际定义，或者是对容器中另一个bean的引用。</p>
                                     </li>
+                                    <hr>
+
                                     <li>
-                                        <p>Each property or constructor argument that is a value is converted from its specified format to the actual type of that property or constructor argument. By default, Spring can convert a value supplied in string
-                                            format to all built-in types, such as <code>int</code>,
-                                            <code>long</code>, <code>String</code>, <code>boolean</code>, and so forth.</p>
+                                        <p>
+                                            Each property or constructor argument that is a value is converted from its specified format to the actual type of that property or constructor argument. By default, Spring can convert a value supplied in string format to all built-in types, such as <code>int</code>, <code>long</code>, <code>String</code>, <code>boolean</code>, and so forth.
+                                        </p>
+                                        <p class="translate">
+                                           作为值的每个属性或构造函数参数都将从其指定的格式转换为该属性或构造函数参数的实际类型。默认情况下，Spring可以将以字符串格式提供的值转换为所有内置类型，如int、long、String、boolean等
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
+                            <hr>
+
                             <div class="paragraph">
-                                <p>The Spring container validates the configuration of each bean as the container is created. However, the bean properties themselves are not set until the bean is actually created. Beans that are singleton-scoped and set
+                                <p>
+                                    The Spring container validates the configuration of each bean as the container is created. However, the bean properties themselves are not set until the bean is actually created. Beans that are singleton-scoped and set
                                     to be pre-instantiated (the default) are created when the container is created. Scopes are defined in <a href="#beans-factory-scopes">Bean Scopes</a>. Otherwise, the bean is created only when it is requested. Creation
                                     of a bean potentially causes a graph of beans to be created, as the bean&#8217;s dependencies and its dependencies' dependencies (and so on) are created and assigned. Note that resolution mismatches among those dependencies
-                                    may show up late&#8201;&#8212;&#8201;that is, on first creation of the affected bean.</p>
+                                    may show up late&#8201;&#8212;&#8201;that is, on first creation of the affected bean.
+                                </p>
+                                <p class="translate">
+                                    在创建容器时，Spring容器会验证每个Bean的配置。但是，在实际创建bean之前，不会设置bean的属性。当创建容器时，单实例并设置为预实例化（默认方式）的bean会被创建。作用域被设置为bean作用域。
+                                    否则，只有在请求bean时才创建它。
+                                    创建一个Bean可能会导致创建一个Bean的图，因为Bean的依赖关系和它的依赖关系（等等）被创建和分配。
+                                </p>
                             </div>
+                            <hr>
+
                             <div class="sidebarblock">
                                 <div class="content">
-                                    <div class="title">Circular dependencies</div>
+                                    <div class="title">Circular dependenciesn(循环依赖)</div>
                                     <div class="paragraph">
                                         <p>If you use predominantly constructor injection, it is possible to create an unresolvable circular dependency scenario.</p>
+                                        <p class="translate">如果主要使用构造函数注入，则可能创建循环依赖的场景。</p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>For example: Class A requires an instance of class B through constructor injection, and class B requires an instance of class A through constructor injection. If you configure beans for classes A and B to be injected
-                                            into each other, the Spring IoC container detects this circular reference at runtime, and throws a
-                                            <code>BeanCurrentlyInCreationException</code>.</p>
+                                        <p>
+                                            For example: Class A requires an instance of class B through constructor injection, and class B requires an instance of class A through constructor injection. If you configure beans for classes A and B to be injected into each other, the Spring IoC container detects this circular reference at runtime, and throws a <code>BeanCurrentlyInCreationException</code>.
+                                        </p>
+                                        <p class="translate">
+                                            例如：类A通过构造函数注入需要类B的实例，类B通过构造函数注入需要类A的实例。如果为要相互注入的类A和类B配置bean，那么SpringIOC容器在运行时检测到这个循环引用，会抛出BeanCurrentlyInCreationException。
+                                        </p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>One possible solution is to edit the source code of some classes to be configured by setters rather than constructors. Alternatively, avoid constructor injection and use setter injection only. In other words, although
-                                            it is not recommended, you can configure circular dependencies with setter injection.</p>
+                                        <p>
+                                            One possible solution is to edit the source code of some classes to be configured by setters rather than constructors. Alternatively, avoid constructor injection and use setter injection only. In other words, although
+                                            it is not recommended, you can configure circular dependencies with setter injection.
+                                        </p>
+                                        <p class="translate">
+                                            一种可能的解决方案是编辑一些类的源代码，这些类由setter而不是构造函数配置。或者，避免构造函数注入，只使用setter注入。换句话说，虽然不建议这样做，但是可以使用setter注入配置循环依赖项。
+                                        </p>
                                     </div>
+                                    <hr>
+
                                     <div class="paragraph">
-                                        <p>Unlike the typical case (with no circular dependencies), a circular dependency between bean A and bean B forces one of the beans to be injected into the other prior to being fully initialized itself (a classic chicken-and-egg
-                                            scenario).</p>
+                                        <p>
+                                            Unlike the typical case (with no circular dependencies), a circular dependency between bean A and bean B forces one of the beans to be injected into the other prior to being fully initialized itself (a classic chicken-and-egg
+                                            scenario).
+                                        </p>
+                                        <p class="translate">
+                                            与典型情况（没有循环依赖性）不同，bean a和bean b之间的循环依赖强制将其中一个bean注入另一个bean，然后完全初始化自己（经典的鸡和蛋场景）。
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="paragraph">
-                                <p>You can generally trust Spring to do the right thing. It detects configuration problems, such as references to non-existent beans and circular dependencies, at container load-time. Spring sets properties and resolves dependencies
-                                    as late as possible, when the bean is actually created. This means that a Spring container that has loaded correctly can later generate an exception when you request an object if there is a problem creating that object
-                                    or one of its dependencies&#8201;&#8212;&#8201;for example, the bean throws an exception as a result of a missing or invalid property. This potentially delayed visibility of some configuration issues is why <code>ApplicationContext</code>                                    implementations by default pre-instantiate singleton beans. At the cost of some upfront time and memory to create these beans before they are actually needed, you discover configuration issues when the <code>ApplicationContext</code>                                    is created, not later. You can still override this default behavior so that singleton beans initialize lazily, rather than being pre-instantiated.</p>
+                                <p>
+                                    You can generally trust Spring to do the right thing. It detects configuration problems, such as references to non-existent beans and circular dependencies, at container load-time. Spring sets properties and resolves dependencies
+                                    as late as possible, when the bean is actually created. This means that a Spring container that has loaded correctly can later generate an exception when you request an object if there is a problem creating that object or one of its dependencies&#8201;&#8212;&#8201;for example, the bean throws an exception as a result of a missing or invalid property. This potentially delayed visibility of some configuration issues is why <code>ApplicationContext</code>implementations by default pre-instantiate singleton beans. At the cost of some upfront time and memory to create these beans before they are actually needed, you discover configuration issues when the <code>ApplicationContext</code>is created, not later. You can still override this default behavior so that singleton beans initialize lazily, rather than being pre-instantiated.
+                                </p>
+                                <p class="translate">
+                                    一般来说，你可以相信Spring会做正确的事情。它可以在容器加载时检测到配置问题，例如对不存在的Bean的引用和循环依赖等。
+                                    在实际创建Bean时,Spring会尽可能晚地设置属性并解决依赖关系。这意味着，如果创建对象或其依赖关系中的一个对象出现了问题，那么已经正确加载的Spring容器可能会在以后请求一个对象时产生异常--例如，Bean因为缺失或无效的属性而抛出异常。
+                                    对于这样的配置问题，这种潜在的延迟可见性是ApplicationContext实现默认情况下预实例化singleton bean的原因。
+                                    在实际需要这些Bean之前,创建这些Bean要付出一些前期时间和内存的代价，你在创建ApplicationContext的时候发现配置问题，而不是以后才发现。
+                                    你仍然可以重写这个默认行为，这样单子系统Bean的初始化就会比较懒惰，而不是被预实例化。
+                                </p>
                             </div>
+                            <hr>
+
                             <div class="paragraph">
-                                <p>If no circular dependencies exist, when one or more collaborating beans are being injected into a dependent bean, each collaborating bean is totally configured prior to being injected into the dependent bean. This means
-                                    that, if bean A has a dependency on bean B, the Spring IoC container completely configures bean B prior to invoking the setter method on bean A. In other words, the bean is instantiated (if it is not a pre-instantiated
-                                    singleton), its dependencies are set, and the relevant lifecycle methods (such as a <a href="#beans-factory-lifecycle-initializingbean">configured init method</a> or the <a href="#beans-factory-lifecycle-initializingbean">InitializingBean callback method</a>)
-                                    are invoked.</p>
+                                <p>
+                                    If no circular dependencies exist, when one or more collaborating beans are being injected into a dependent bean, each collaborating bean is totally configured prior to being injected into the dependent bean. This means
+                                    that, if bean A has a dependency on bean B, the Spring IoC container completely configures bean B prior to invoking the setter method on bean A. In other words, the bean is instantiated (if it is not a pre-instantiated singleton), its dependencies are set, and the relevant lifecycle methods (such as a <a href="#beans-factory-lifecycle-initializingbean">configured init method</a> or the <a href="#beans-factory-lifecycle-initializingbean">InitializingBean callback method</a>)
+                                    are invoked.
+                                </p>
+                                <p class="translate">
+                                    如果不存在循环依赖关系，当一个或多个协作豆被注入到依赖豆时，每个协作豆在被注入到依赖豆之前都会被完全配置。这意味着，如果Bean A 对Bean B 有依赖关系，Spring IoC 容器在调用Bean A 上的setter 方法之前，会完全配置Bean B。
+                                </p>
                             </div>
                         </div>
+                        <hr>
+
                         <div class="sect4">
                             <h5 id="beans-some-examples"><a class="anchor" href="#beans-some-examples"></a>Examples of Dependency Injection</h5>
                             <div class="paragraph">
@@ -13263,44 +13479,95 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                 </div>
                 <div class="sect2">
                     <h3 id="beans-beanfactory"><a class="anchor" href="#beans-beanfactory"></a>1.16. The <code>BeanFactory</code></h3>
+
                     <div class="paragraph">
-                        <p>The <code>BeanFactory</code> API provides the underlying basis for Spring&#8217;s IoC functionality. Its specific contracts are mostly used in integration with other parts of Spring and related third-party frameworks, and its <code>DefaultListableBeanFactory</code>                            implementation is a key delegate within the higher-level <code>GenericApplicationContext</code> container.</p>
+                        <p>
+                            The <code>BeanFactory</code> API provides the underlying basis for Spring&#8217;s IoC functionality. Its specific contracts are mostly used in integration with other parts of Spring and related third-party frameworks, and its <code>DefaultListableBeanFactory</code> implementation is a key delegate within the higher-level <code>GenericApplicationContext</code> container.
+                        </p>
+                        <p class="translate">
+                            BeanFactory API为Spring的IOC功能提供了基础。其特定的契约主要用于与Spring和相关第三方框架的其他部分集成，其默认的ListableBeanFactory实现是更高级别GenericApplicationContext容器中的关键委托。
+                        </p>
                     </div>
+                    <hr>
+
                     <div class="paragraph">
-                        <p><code>BeanFactory</code> and related interfaces (such as <code>BeanFactoryAware</code>, <code>InitializingBean</code>,
+                        <p>
+                            <code>BeanFactory</code> and related interfaces (such as <code>BeanFactoryAware</code>, <code>InitializingBean</code>,
                             <code>DisposableBean</code>) are important integration points for other framework components. By not requiring any annotations or even reflection, they allow for very efficient interaction between the container and its components.
-                            Application-level beans may use the same callback interfaces but typically prefer declarative dependency injection instead, either through annotations or through programmatic configuration.</p>
+                            Application-level beans may use the same callback interfaces but typically prefer declarative dependency injection instead, either through annotations or through programmatic configuration.
+                        </p>
+                        <p class="translate">
+                            BeanFactory和相关接口（如BeanFactoryAware、InitializingBean、DisposableBean）是其他框架组件的重要集成点。通过不需要任何注解甚至反射，它们允许容器及其组件之间非常有效的交互。应用程序级bean可以使用相同的回调接口，但通常更倾向于通过注解或编程配置进行声明性依赖项注入。
+                        </p>
                     </div>
+                    <hr>
+
                     <div class="paragraph">
-                        <p>Note that the core <code>BeanFactory</code> API level and its <code>DefaultListableBeanFactory</code> implementation do not make assumptions about the configuration format or any component annotations to be used. All of these flavors
+                        <p>
+                            Note that the core <code>BeanFactory</code> API level and its <code>DefaultListableBeanFactory</code> implementation do not make assumptions about the configuration format or any component annotations to be used. All of these flavors
                             come in through extensions (such as <code>XmlBeanDefinitionReader</code> and <code>AutowiredAnnotationBeanPostProcessor</code>) and operate on shared <code>BeanDefinition</code> objects as a core metadata representation. This
-                            is the essence of what makes Spring&#8217;s container so flexible and extensible.</p>
+                            is the essence of what makes Spring&#8217;s container so flexible and extensible.
+                        </p>
+                        <p class="translate">
+                            请注意，核心BeanFactory API级别及其DefaultListableBeanFactory实现不会使用使用配置格式或任何组件注解。所有这些风格都通过扩展（如xmlbeanDefinitionReader和autowiredAnnotationBeanPostProcessor）传入，并作为核心元数据表示对共享BeanDefinition对象进行操作。这就是使Spring容器如此灵活和可扩展的本质所在。
+                        </p>
                     </div>
+                    <hr>
+
                     <div class="sect3">
                         <h4 id="context-introduction-ctx-vs-beanfactory"><a class="anchor" href="#context-introduction-ctx-vs-beanfactory"></a>1.16.1. <code>BeanFactory</code> or <code>ApplicationContext</code>?</h4>
+                        1.16.1 BeanFactory 还是 ApplicationContext ？
+
                         <div class="paragraph">
-                            <p>This section explains the differences between the <code>BeanFactory</code> and
-                                <code>ApplicationContext</code> container levels and the implications on bootstrapping.</p>
+                            <p>
+                                This section explains the differences between the <code>BeanFactory</code> and
+                                <code>ApplicationContext</code> container levels and the implications on bootstrapping.
+                            </p>
+                            <p class="translate">
+                                本节解释BeanFactory和ApplicationContext容器级别之间的差异以及引导的含义。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>You should use an <code>ApplicationContext</code> unless you have a good reason for not doing so, with
+                            <p>
+                                You should use an <code>ApplicationContext</code> unless you have a good reason for not doing so, with
                                 <code>GenericApplicationContext</code> and its subclass <code>AnnotationConfigApplicationContext</code> as the common implementations for custom bootstrapping. These are the primary entry points to Spring&#8217;s core container
-                                for all common purposes: loading of configuration files, triggering a classpath scan, programmatically registering bean definitions and annotated classes, and (as of 5.0) registering functional bean definitions.</p>
+                                for all common purposes: loading of configuration files, triggering a classpath scan, programmatically registering bean definitions and annotated classes, and (as of 5.0) registering functional bean definitions.
+                            </p>
+                            <p class="translate">
+                                除非有充分的理由不这样做，否则应该使用ApplicationContext，将GenericApplicationContext及其子类AnnotationConfigApplicationContext作为自定义引导的常见实现。这些是Spring核心容器的主要入口点，用于所有常见用途：加载配置文件、触发类路径扫描、以编程方式注册bean定义和带注解的类，以及（从5.0开始）注册功能性bean定义。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>Because an <code>ApplicationContext</code> includes all the functionality of a <code>BeanFactory</code>, it is generally recommended over a plain <code>BeanFactory</code>, except for scenarios where full control over bean processing
-                                is needed. Within an <code>ApplicationContext</code> (such as the
-                                <code>GenericApplicationContext</code> implementation), several kinds of beans are detected by convention (that is, by bean name or by bean type&#8201;&#8212;&#8201;in particular, post-processors), while a plain <code>DefaultListableBeanFactory</code>                                is agnostic about any special beans.</p>
+                            <p>
+                                Because an <code>ApplicationContext</code> includes all the functionality of a <code>BeanFactory</code>, it is generally recommended over a plain <code>BeanFactory</code>, except for scenarios where full control over bean processing
+                                is needed. Within an <code>ApplicationContext</code> (such as the <code>GenericApplicationContext</code> implementation), several kinds of beans are detected by convention (that is, by bean name or by bean type&#8201;&#8212;&#8201;in particular, post-processors), while a plain <code>DefaultListableBeanFactory</code> is agnostic about any special beans.
+                            </p>
+                            <p class="translate">
+                                由于ApplicationContext包含BeanFactory的所有功能，因此通常建议将其置于普通BeanFactory之上，但需要完全控制Bean处理的情况除外。在ApplicationContext（例如GenericapplicationContext实现）中，通过约定（即，通过bean名称或bean类型-特别是后处理器）检测到几种bean，而普通的DefaultListableBeanFactory对于任何特殊bean都是不可知的。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>For many extended container features, such as annotation processing and AOP proxying, the <a href="#beans-factory-extension-bpp"><code>BeanPostProcessor</code> extension point</a> is essential. If you use only a plain <code>DefaultListableBeanFactory</code>,
-                                such post-processors do not get detected and activated by default. This situation could be confusing, because nothing is actually wrong with your bean configuration. Rather, in such a scenario, the container needs to be
-                                fully bootstrapped through additional setup.</p>
+                            <p>
+                                For many extended container features, such as annotation processing and AOP proxying, the <a href="#beans-factory-extension-bpp"><code>BeanPostProcessor</code> extension point</a> is essential. If you use only a plain <code>DefaultListableBeanFactory</code>, such post-processors do not get detected and activated by default. This situation could be confusing, because nothing is actually wrong with your bean configuration. Rather, in such a scenario, the container needs to be fully bootstrapped through additional setup.
+                            </p>
+                            <p class="translate">
+                                对于许多扩展容器特性，如注解处理和AOP代理，BeanPostProcessor扩展点是必不可少的。如果只使用普通的DefaultListableBeanFactory，则默认情况下不会检测到此类后处理器并激活它们。这种情况可能会令人困惑，因为bean配置实际上没有任何问题。相反，在这种情况下，需要通过额外的设置完全引导容器。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>The following table lists features provided by the <code>BeanFactory</code> and
-                                <code>ApplicationContext</code> interfaces and implementations.</p>
+                            <p>The following table lists features provided by the <code>BeanFactory</code> and <code>ApplicationContext</code> interfaces and implementations.</p>
+                            <p class="translate">下表列出了BeanFactory和ApplicationContext接口和实现提供的功能。</p>
                         </div>
+                        <hr>
+
                         <table id="context-introduction-ctx-vs-beanfactory-feature-matrix" class="tableblock frame-all grid-all stretch">
                             <caption class="title">Table 9. Feature Matrix</caption>
                             <colgroup>
@@ -13318,7 +13585,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                             <tbody>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Bean instantiation/wiring</p>
+                                        <p class="tableblock">Bean instantiation/wiring(Bean实例化和注入)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">Yes</p>
@@ -13329,7 +13596,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Integrated lifecycle management</p>
+                                        <p class="tableblock">Integrated lifecycle management (和生命周期集成)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">No</p>
@@ -13340,7 +13607,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Automatic <code>BeanPostProcessor</code> registration</p>
+                                        <p class="tableblock">Automatic <code>BeanPostProcessor</code> registration (自动BeanPostProcessor注册)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">No</p>
@@ -13351,7 +13618,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Automatic <code>BeanFactoryPostProcessor</code> registration</p>
+                                        <p class="tableblock">Automatic <code>BeanFactoryPostProcessor</code> registration (自动BeanFactoryPostProcessor注册)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">No</p>
@@ -13362,7 +13629,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Convenient <code>MessageSource</code> access (for internalization)</p>
+                                        <p class="tableblock">Convenient <code>MessageSource</code> access (for internalization)  (MessageSource便捷访问（内部）)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">No</p>
@@ -13373,7 +13640,7 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                                 <tr>
                                     <td class="tableblock halign-left valign-top">
-                                        <p class="tableblock">Built-in <code>ApplicationEvent</code> publication mechanism</p>
+                                        <p class="tableblock">Built-in <code>ApplicationEvent</code> publication mechanism (内置的ApplicationEvent发布机制)</p>
                                     </td>
                                     <td class="tableblock halign-left valign-top">
                                         <p class="tableblock">No</p>
@@ -13384,9 +13651,18 @@ fun onPersonCreated(event: EntityCreatedEvent&lt;Person&gt;) {
                                 </tr>
                             </tbody>
                         </table>
+                        <hr>
+
                         <div class="paragraph">
-                            <p>To explicitly register a bean post-processor with a <code>DefaultListableBeanFactory</code>, you need to programmatically call <code>addBeanPostProcessor</code>, as the following example shows:</p>
+                            <p>
+                                To explicitly register a bean post-processor with a <code>DefaultListableBeanFactory</code>, you need to programmatically call <code>addBeanPostProcessor</code>, as the following example shows:
+                            </p>
+                            <p class="translate">
+                                显示使用DefaultListableBeanFactory注册bean的post-processor， 你需要在程序中调用addBeanPostProcessor，如下：
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="listingblock primary">
                             <div class="title">Java</div>
                             <div class="content">
@@ -13413,9 +13689,18 @@ factory.addBeanPostProcessor(MyBeanPostProcessor())
 // now start using the factory</code></pre>
                             </div>
                         </div>
+
+                        <hr>
                         <div class="paragraph">
-                            <p>To apply a <code>BeanFactoryPostProcessor</code> to a plain <code>DefaultListableBeanFactory</code>, you need to call its <code>postProcessBeanFactory</code> method, as the following example shows:</p>
+                            <p>
+                                To apply a <code>BeanFactoryPostProcessor</code> to a plain <code>DefaultListableBeanFactory</code>, you need to call its <code>postProcessBeanFactory</code> method, as the following example shows:
+                            </p>
+                            <p class="translate">
+                                要应用BeanFactoryPostProcessor到普通的DefaultListableBeanFactory，你需要调用postProcessBeanFactory， 如下：
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="listingblock primary">
                             <div class="title">Java</div>
                             <div class="content">
@@ -13447,10 +13732,17 @@ cfg.postProcessBeanFactory(factory)</code></pre>
                             </div>
                         </div>
                         <div class="paragraph">
-                            <p>In both cases, the explicit registration steps are inconvenient, which is why the various <code>ApplicationContext</code> variants are preferred over a plain
+                            <p>
+                                In both cases, the explicit registration steps are inconvenient, which is why the various <code>ApplicationContext</code> variants are preferred over a plain
                                 <code>DefaultListableBeanFactory</code> in Spring-backed applications, especially when relying on <code>BeanFactoryPostProcessor</code> and <code>BeanPostProcessor</code> instances for extended container functionality in
-                                a typical enterprise setup.</p>
+                                a typical enterprise setup.
+                            </p>
+                            <p class="translate">
+                                在这两种情况下，显式注册步骤都不方便，这就是为什么在支持Spring的应用程序中，各种ApplicationContext变量比普通的defaultListableBeanFactory更受欢迎，特别是在典型企业应用中，依赖BeanFactoryPostProcessor和BeanPostProcessor实例实现扩展容器功能时。
+                            </p>
                         </div>
+                        <hr>
+
                         <div class="admonitionblock note">
                             <table>
                                 <tr>
@@ -13459,8 +13751,13 @@ cfg.postProcessBeanFactory(factory)</code></pre>
                                     </td>
                                     <td class="content">
                                         <div class="paragraph">
-                                            <p>An <code>AnnotationConfigApplicationContext</code> has all common annotation post-processors registered and may bring in additional processors underneath the covers through configuration annotations, such as
-                                                <code>@EnableTransactionManagement</code>. At the abstraction level of Spring&#8217;s annotation-based configuration model, the notion of bean post-processors becomes a mere internal container detail.</p>
+                                            <p>
+                                                An <code>AnnotationConfigApplicationContext</code> has all common annotation post-processors registered and may bring in additional processors underneath the covers through configuration annotations, such as
+                                                <code>@EnableTransactionManagement</code>. At the abstraction level of Spring&#8217;s annotation-based configuration model, the notion of bean post-processors becomes a mere internal container detail.
+                                            </p>
+                                            <p class="translate">
+                                                AnnotationConfigApplicationContext注册了所有常见的注解后处理程序，并可以通过配置注解（如@EnableTransactionManagement）将其他处理程序置于覆盖范围内。在Spring基于注解的配置模型的抽象级别上，bean后处理器的概念变成了一个更内部的容器细节。
+                                            </p>
                                         </div>
                                     </td>
                                 </tr>
